@@ -22,14 +22,14 @@ import br.com.cliente.model.Cliente;
 public class ServletCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private Cliente cliente = new Cliente();
+	private Cliente cliente;
 	
 	ArrayList<Cliente>b = new ArrayList();
     
     public ServletCliente() {
         super();
         
-        //cliente = new Cliente();
+        
         
     }
     
@@ -38,7 +38,7 @@ public class ServletCliente extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		
+		cliente = new Cliente();
 		
 		//Mensagem de cadastro
 		
