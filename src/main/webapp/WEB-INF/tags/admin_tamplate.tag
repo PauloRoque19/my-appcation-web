@@ -2,7 +2,7 @@
 <%@ attribute name="title" required="true" rtexprvalue="true"%>
 <%@ attribute name="breadcrumb" required="true" rtexprvalue="true"%>
 <%@ attribute name="content" fragment="true"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +26,7 @@
 				<li class="nav-item dropdown">
 					<a href="#" id="dd_user" class="nav-link dropdown-toggle" data-toggle="dropdown">
 						<i class="fa fa-user"> </i> 
-						Paulo Roque
+						Bem Vindo, ${user}
 					</a>
 					
 					<div class="dropdown-menu dropdown-menu-right"
@@ -47,7 +47,7 @@
 				<li><a href="${pageContext.request.contextPath}/admin/dependentes/dependentes.jsp">Dependentes</a></li>
 				<li><a href="${pageContext.request.contextPath}/admin/departamentos/departamentos.jsp">Departamentos</a></li>
 				<li><a href="${pageContext.request.contextPath}/admin/cargos/cargos.jsp">Cargos</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/usuarios/usuarios.jsp">Usuários</a></li>
+				<li><a href="${pageContext.request.contextPath}/ServletCliente?action=list">Usuários</a></li>
 			</ul>
 		</div>
 

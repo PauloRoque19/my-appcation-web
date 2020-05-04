@@ -1,4 +1,5 @@
 <!doctype html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -36,23 +37,41 @@
   
   <body class="text-center">
   
-    <form class="form-signin"  action="ServletLogin" method = "post" >
+    <form class="form-signin"  action="${pageContext.request.contextPath}/ServletLogin" method = "post" >
     
-		  <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-		  <label for="email" class="sr-only">Email</label>
-		  <input type="email" id="email" name="email" class="form-control" placeholder="login" required autofocus>
+		  <h1 class="h3 mb-3 font-weight-normal">SISTEMA ROQUE INC</h1>
+		  
+		  <label for="login" class="sr-only">Login</label>
+		  <input type="text" id="login" name="login" class="form-control" placeholder="Insira o login" required autofocus>
 		    <br/>
 		  <label for="senha" class="sr-only">Senha</label>
-		  <input type="password" id="senha" name ="senha" class="form-control" placeholder="Senha" required>
+		  <input type="password" id="senha" name ="senha" class="form-control" placeholder="Insira a Senha" required>
 		  
 		 <!--  <a href="${pageContext.request.contextPath}/"  class="btn btn-lg btn-primary btn-block" type="submit">Logar</a>-->
 		   <input class="btn btn-lg btn-primary btn-block" type="submit"  name="enviar" id="enviar"  value="ENVIAR"/> 
-		     <%String mensagem = (String) request.getAttribute("msg");
-			if (mensagem == null){
-				mensagem = "";
-			}
-	  	%>
-	<%=mensagem%>
+			
+			<c:if test="${erro.erro != null}">
+				<div class="alert alert-danger" role="alert">
+  					${erro.erro}
+				</div>
+			</c:if>
+			
+			<c:if test="${erro.senha != null}">
+				<div class="alert alert-danger" role="alert">
+  					${erro.senha}
+				</div>
+			</c:if>
+			
+			<c:if test="${erro.login != null}">
+				<div class="alert alert-danger" role="alert">
+  					${erro.login}
+				</div>
+			</c:if>
+			<c:if test="${erro.inativo != null}">
+				<div class="alert alert-danger" role="alert">
+  					${erro.inativo}
+				</div>
+			</c:if>
 		   
 		  <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p><br>
 		
